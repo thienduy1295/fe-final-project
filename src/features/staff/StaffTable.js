@@ -1,17 +1,28 @@
 import {
   Avatar,
   Box,
+  styled,
   Table,
   TableBody,
   TableCell,
+  tableCellClasses,
   TableContainer,
   TableHead,
   TableRow,
   TableSortLabel,
 } from "@mui/material";
 import React, { useState } from "react";
-// import { Link as RouterLink } from "react-router-dom";
 import DeleteStaffButton from "./DeleteStaffButton";
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.primary.light,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
 
 function StaffTable({ users }) {
   const getAction = (user) => {
@@ -68,7 +79,7 @@ function StaffTable({ users }) {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ width: { xs: "20%", sm: "30%" } }}>
+              <StyledTableCell sx={{ width: { xs: "20%", sm: "30%" } }}>
                 <TableSortLabel
                   active={valueToOrderBy === "name"}
                   direction={valueToOrderBy === "name" ? orderDirection : "asc"}
@@ -76,8 +87,10 @@ function StaffTable({ users }) {
                 >
                   Name
                 </TableSortLabel>
-              </TableCell>
-              <TableCell sx={{ display: { xs: "none", md: "table-cell" } }}>
+              </StyledTableCell>
+              <StyledTableCell
+                sx={{ display: { xs: "none", md: "table-cell" } }}
+              >
                 <TableSortLabel
                   active={valueToOrderBy === "email"}
                   direction={
@@ -87,8 +100,8 @@ function StaffTable({ users }) {
                 >
                   Email
                 </TableSortLabel>
-              </TableCell>
-              <TableCell align="right">Action</TableCell>
+              </StyledTableCell>
+              <StyledTableCell align="right">Action</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -99,7 +112,7 @@ function StaffTable({ users }) {
               const { action } = getAction(user);
               return (
                 <TableRow key={user._id} hover>
-                  <TableCell
+                  <StyledTableCell
                     sx={{
                       display: "flex",
                       alignItems: "center",
@@ -112,14 +125,14 @@ function StaffTable({ users }) {
                       sx={{ mr: 2 }}
                     />
                     {user.name}
-                  </TableCell>
-                  <TableCell
+                  </StyledTableCell>
+                  <StyledTableCell
                     align="left"
                     sx={{ display: { xs: "none", md: "table-cell" } }}
                   >
                     {user.email}
-                  </TableCell>
-                  <TableCell align="right">{action}</TableCell>
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{action}</StyledTableCell>
                 </TableRow>
               );
             })}

@@ -142,6 +142,7 @@ export const getStatusCount = () => async (dispatch) => {
   try {
     const response = await apiService.get("tasks/countStatus");
     dispatch(slice.actions.getStatusCountSuccess(response.data));
+    dispatch(getTasks());
   } catch (error) {
     dispatch(slice.actions.hasError(error));
   }

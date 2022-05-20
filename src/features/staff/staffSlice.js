@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import apiService from "../../app/apiService";
 
 export const initialState = {
@@ -67,8 +68,10 @@ export const deleteStaff = (targetUserId) => async (dispatch) => {
     const response = await apiService.delete(`/users/delete/${targetUserId}`);
     dispatch(slice.actions.deleteStaffSuccess(response.data));
     dispatch(getStaffs({ filterName: "" }));
+    toast.success("Delete staff success");
   } catch (error) {
     dispatch(slice.actions.hasError(error));
+    toast.error(error.message);
   }
 };
 export const getAllData = () => async (dispatch) => {

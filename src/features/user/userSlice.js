@@ -49,6 +49,7 @@ export const UpdateUserProfile =
       toast.success("Your profile has been updated successfully");
     } catch (error) {
       dispatch(slice.actions.hasError(error));
+      toast.error(error.message);
     }
   };
 

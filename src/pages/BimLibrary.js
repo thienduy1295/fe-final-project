@@ -1,20 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import useAuth from "../hooks/useAuth";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import BimList from "../features/bimLibrary/BimLib";
 import TaskList from "../features/task/TaskList";
-import { Container, Stack, Tab, Tabs, Typography } from "@mui/material";
+import { Badge, Container, Stack, Tab, Tabs, Typography } from "@mui/material";
 import { capitalCase } from "change-case";
 import { Box } from "@mui/system";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getTaskOfStaff } from "../features/task/taskSlice";
 
 function BimLibrary() {
-  // const { user } = useAuth();
+  let count = 0;
   const [currentTab, setCurrentTab] = useState("bimLibrary");
+  const { tasksOfStaff } = useSelector((state) => state.task);
+
+  tasksOfStaff.map((task) => (task.status === "todo" ? (count += 1) : null));
 
   const handleChangeTab = (newValue) => {
     setCurrentTab(newValue);
   };
+
+  console.log(tasksOfStaff.length);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTaskOfStaff());
+  }, [dispatch]);
 
   const PROFILE_TABS = [
     {
@@ -24,7 +36,11 @@ function BimLibrary() {
     },
     {
       value: "planner",
-      icon: <AssignmentIcon sx={{ fontSize: 24 }} />,
+      icon: (
+        <Badge badgeContent={count} color="error" showZero>
+          <AssignmentIcon sx={{ fontSize: 24 }} />
+        </Badge>
+      ),
       component: <TaskList />,
     },
   ];
@@ -37,7 +53,7 @@ function BimLibrary() {
         variant="scrollable"
         allowScrollButtonsMobile
         onChange={(e, value) => handleChangeTab(value)}
-        sx={{ background: "#FFCB05" }}
+        sx={{ background: "#FFCB05", paddingLeft: 3 }}
       >
         {PROFILE_TABS.map((tab) => (
           <Tab

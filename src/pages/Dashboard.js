@@ -1,20 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import ArtTrackIcon from "@mui/icons-material/ArtTrack";
 
 import TaskAdminList from "../components/TaskAdminList";
-import { Box, Tab, Tabs, Grid, useMediaQuery, Typography } from "@mui/material";
+import {
+  Box,
+  Tab,
+  Tabs,
+  Grid,
+  useMediaQuery,
+  Typography,
+  Badge,
+} from "@mui/material";
 import { capitalCase } from "change-case";
 import Staff from "../features/staff/Staff";
 import AdminBim from "../features/bimLibrary/AdminBim";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import DashboardInfo from "../components/DashboardInfo";
+import { useSelector } from "react-redux";
+import { getStatusCount } from "../features/task/taskSlice";
+import { useDispatch } from "react-redux";
 
 function Dashboard() {
   const [currentTab, setCurrentTab] = useState("dashboard");
   const mediumViewport = useMediaQuery("(min-width:768px)");
+
+  const { countStatusType } = useSelector((state) => state.task);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getStatusCount());
+  }, [dispatch]);
 
   const handleChangeTab = (newValue) => {
     setCurrentTab(newValue);
@@ -33,7 +51,11 @@ function Dashboard() {
     },
     {
       value: "planner",
-      icon: <AssignmentIcon sx={{ fontSize: 24 }} />,
+      icon: (
+        <Badge badgeContent={countStatusType.review} color="error" showZero>
+          <AssignmentIcon sx={{ fontSize: 24 }} />
+        </Badge>
+      ),
       component: <TaskAdminList />,
     },
     {
@@ -44,7 +66,7 @@ function Dashboard() {
   ];
 
   return (
-    <Grid container spacing={2}>
+    <Grid container style={{ backgroundColor: "#FFCB05" }}>
       <Grid item md={2} sm={12}>
         <Tabs
           value={currentTab}

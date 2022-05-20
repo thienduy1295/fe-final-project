@@ -1,7 +1,7 @@
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import React, { useState } from "react";
 
-import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 import Popup from "../../components/Popup";
 import EditBimForm from "./EditBimForm";
@@ -11,19 +11,16 @@ function EditBimButton({ bimInfo, bimId, sx }) {
 
   const btnEdit = (
     <>
-      <Button
+      <IconButton
         sx={{
           fontSize: "0.7rem",
+          color: "#0089CD",
           ...sx,
         }}
-        size="medium"
-        startIcon={<DeleteIcon />}
-        variant="outlined"
-        // onClick={() => dispatch(editBim(bimId))}
         onClick={() => setOpenPopup(true)}
       >
-        Edit
-      </Button>
+        <EditIcon />
+      </IconButton>
       <Popup title="Category" openPopup={openPopup} setOpenPopup={setOpenPopup}>
         <EditBimForm bimInfo={bimInfo} bimId={bimId} />
       </Popup>

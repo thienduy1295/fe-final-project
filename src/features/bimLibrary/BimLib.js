@@ -19,6 +19,8 @@ import SearchInput from "../../components/SearchInput";
 import { getBims } from "./bimLibSlice";
 import ClearAllIcon from "@mui/icons-material/ClearAll";
 import newCollections from "../../images/newCollections/hero_image.jpg";
+import SwipeableTextMobileStepper from "../../components/CarouselEffect";
+import CarouselEffect from "../../components/CarouselEffect";
 
 function BimLib() {
   const [loading, setLoading] = useState(false);
@@ -73,7 +75,6 @@ function BimLib() {
       >
         <Card variant="oulined">
           <Stack>
-            {/* <SearchInput handleSubmit={handleSubmit} /> */}
             <BimFilterCategory
               handleOnChange={handleOnChange}
               value={value}
@@ -101,12 +102,13 @@ function BimLib() {
               borderRadius: 7,
             }}
           >
-            <CardMedia
+            {/* <CardMedia
               component="img"
               height="300"
               image={newCollections}
               alt="image Collections"
-            />
+            /> */}
+            <CarouselEffect />
           </Card>
           <Stack>
             <Box>

@@ -1,27 +1,23 @@
-import { Button } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteStaff } from "./staffSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
+import ClearIcon from "@mui/icons-material/Clear";
 
 function DeleteStaffButton({ targetUserId, sx }) {
   const dispatch = useDispatch();
 
   const btnDelete = (
-    <Button
+    <IconButton
       sx={{
-        fontSize: "0.7rem",
-        color: "#e74c3c",
-        borderColor: "#e74c3c",
         ...sx,
       }}
-      size="medium"
-      startIcon={<DeleteIcon />}
-      variant="outlined"
+      color="error"
       onClick={() => dispatch(deleteStaff(targetUserId))}
     >
-      Delete
-    </Button>
+      <ClearIcon />
+    </IconButton>
   );
 
   return btnDelete;

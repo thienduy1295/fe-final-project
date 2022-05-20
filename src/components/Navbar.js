@@ -1,10 +1,9 @@
 import React from "react";
 import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
-import { menuData } from "../data/MenuData";
-import { Button } from "./Button";
 import Bars from "../images/bars.svg";
 import LogoLandingView from "./LogoLandingView";
+import Logo from "./Logo";
 
 const Nav = styled.nav`
   height: 60px;
@@ -27,11 +26,6 @@ const NavLink = css`
   cursor: pointer;
   text-decoration: none;
 `;
-
-// const Logo = styled(Link)`
-//   ${NavLink}
-//   font-style: italic;
-// `;
 
 const MenuBars = styled.i`
   display: block;
@@ -58,19 +52,7 @@ const Navbar = ({ toggle }) => {
   return (
     <Nav>
       <MenuBars onClick={toggle} />
-      <LogoLandingView sx={{ width: "150px" }} />
-      {/* <NavMenu>
-        {menuData.map((item, index) => (
-          <NavMenuLinks to={item.link} key={index}>
-            {item.title}
-          </NavMenuLinks>
-        ))}
-      </NavMenu> */}
-      {/* <NavBtn>
-        <Button to="/contact" primary="true">
-          Contact Us
-        </Button>
-      </NavBtn> */}
+      <Logo sx={{ width: "150px" }} />
     </Nav>
   );
 };

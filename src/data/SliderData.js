@@ -1,38 +1,38 @@
-import ImageOne from "../images/house-1.jpg";
-import ImageTwo from "../images/house-2.jpg";
-import ImageThree from "../images/house-3.jpg";
-import ImageFour from "../images/house-4.jpg";
+import ImageOne from "../images/house-1.png";
+import ImageTwo from "../images/house-2.png";
+import ImageThree from "../images/house-3.png";
+import ImageFour from "../images/house-4.png";
 
 export const SliderData = [
   {
-    title: "Luxury Villa in Bali, Indonesia",
-    price: "$4,280,000",
-    path: "/homes",
-    label: "View Home",
+    title: "Mai House Sai Gon",
+    price: "Executive Lounge - Lounge View",
+    path: "#",
+    label: "Read more",
     image: ImageOne,
     alt: "House",
   },
   {
-    title: "House in San Jose,Costa Rica",
-    price: "$2,860,000",
-    path: "/homes",
-    label: "View Home",
+    title: "Mai House Sai Gon",
+    price: "Executive Lounge - Dining View",
+    path: "#",
+    label: "Read more",
     image: ImageTwo,
     alt: "House",
   },
   {
-    title: "House in Calabasas, California",
-    price: "$8,420,000",
-    path: "/homes",
-    label: "View Home",
+    title: "Mai House Sai Gon",
+    price: "Meeting Suite - Dining and Lounge",
+    path: "#",
+    label: "Read more",
     image: ImageThree,
     alt: "House",
   },
   {
-    title: "House in Houston, Texas",
-    price: "$6,660,000",
-    path: "/homes",
-    label: "View Home",
+    title: "Mai House Sai Gon",
+    price: "Presidential Suite - Living Area",
+    path: "#",
+    label: "Read more",
     image: ImageFour,
     alt: "House",
   },

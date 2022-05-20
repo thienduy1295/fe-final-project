@@ -1,8 +1,8 @@
 import {
   Box,
-  Button,
   Card,
   Container,
+  IconButton,
   Stack,
   TablePagination,
   Typography,
@@ -12,9 +12,11 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchInput from "../../components/SearchInput";
 import { getBims } from "./bimLibSlice";
 import BimTable from "./BimTable";
-import AddIcon from "@mui/icons-material/Add";
 import Popup from "../../components/Popup";
 import BimForm from "./BimForm";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
 function BimLibAdmin() {
   const [filterName, setFilterName] = useState("");
@@ -48,10 +50,24 @@ function BimLibAdmin() {
   }, [filterName, page, rowsPerPage, dispatch]);
 
   return (
-    <Container sx={{ py: 5 }}>
-      {/* <Typography variant="h4" sx={{ mb: 3 }}>
-        Products
-      </Typography> */}
+    <Container sx={{ py: 5, minHeight: "100vh" }}>
+      <Card sx={{ mb: 1, p: 3, boxShadow: "none", backgroundColor: "#0088FE" }}>
+        <Stack direction="row" alignItems="center">
+          <Stack>
+            <LibraryBooksIcon
+              sx={{ fontSize: "60px", marginRight: "10px", color: "white" }}
+            />
+          </Stack>
+          <Stack>
+            <Typography variant="h6" sx={{ color: "white" }}>
+              BIM library
+            </Typography>
+            <Typography variant="subtitle1" sx={{ color: "white" }}>
+              BIM objects, category
+            </Typography>
+          </Stack>
+        </Stack>
+      </Card>
       <Card sx={{ p: 3, boxShadow: "none" }}>
         <Stack spacing={2}>
           <Box
@@ -61,13 +77,9 @@ function BimLibAdmin() {
               justifyContent: "flex-end",
             }}
           >
-            <Button
-              variant="contained"
-              startIcon={<AddIcon />}
-              onClick={() => setOpenPopup(true)}
-            >
-              Add new
-            </Button>
+            <IconButton color="success" onClick={() => setOpenPopup(true)}>
+              <AddCircleIcon />
+            </IconButton>
           </Box>
           <Stack direction={{ xs: "column", md: "row" }} alignItems="center">
             <SearchInput handleSubmit={handleSubmit} />

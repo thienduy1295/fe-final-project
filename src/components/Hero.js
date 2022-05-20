@@ -9,6 +9,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 // import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
+import { Typography } from "@mui/material";
 
 const HeroSection = styled.section`
   height: 100vh;
@@ -156,8 +157,6 @@ const Hero = ({ slides }) => {
       clearTimeout(timeout.current);
     }
     setCurrent(current === length - 1 ? 0 : current + 1);
-
-    // console.log(current);
   };
 
   const prevSlide = () => {
@@ -165,8 +164,6 @@ const Hero = ({ slides }) => {
       clearTimeout(timeout.current);
     }
     setCurrent(current === 0 ? length - 1 : current - 1);
-
-    // console.log(current);
   };
 
   if (!Array.isArray(slides) || slides.length <= 0) {
@@ -182,8 +179,11 @@ const Hero = ({ slides }) => {
               {index === current && (
                 <HeroSlider>
                   <HeroImage src={slide.image} alt={slide.alt} />
+
                   <HeroContent>
-                    <h1>{slide.title}</h1>
+                    <Fade>
+                      <Typography variant="h3">{slide.title}</Typography>
+                    </Fade>
                     <Fade bottom>
                       <p>{slide.price}</p>
                     </Fade>
@@ -203,6 +203,7 @@ const Hero = ({ slides }) => {
             </HeroSlide>
           );
         })}
+
         <SliderButtons>
           <PrevArrow onClick={prevSlide} />
           <NextArrow onClick={nextSlide} />

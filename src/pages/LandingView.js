@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import InfoSection from "../components/InfoSection";
 import Hero from "../components/Hero";
 import { SliderData } from "../data/SliderData";
-import { InfoData } from "../data/InfoData";
+import { InfoData, InfoDataTwo } from "../data/InfoData";
 import Dropdown from "../components/Dropdown";
 
 function LandingView() {

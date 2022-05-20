@@ -115,14 +115,14 @@ function EditBimForm({ bimInfo, bimId }) {
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
-      <Stack direction="row" spacing={10}>
+      <Stack direction="row" spacing={5}>
         <Stack spacing={2}>
           <FTextField
             name="name"
             placeholder="Name of BIM model"
-            label="Name"
+            variant="standard"
           />
-          <FSelect name="type">
+          <FSelect name="type" variant="standard">
             {CATEGORIES.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -133,8 +133,6 @@ function EditBimForm({ bimInfo, bimId }) {
         </Stack>
         <Stack>
           <Stack>
-            {/* <input type="file" ref={fileInput} onChange={handleFile} /> */}
-            {/* <FTextField name="imageUrl" placeholder="Image" /> */}
             <FUploadImage
               name="imageUrl"
               accept="image/*"
@@ -149,12 +147,14 @@ function EditBimForm({ bimInfo, bimId }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-end",
+          paddingTop: "10px",
         }}
       >
         <LoadingButton
           type="submit"
           variant="contained"
-          size="small"
+          color="success"
+          sx={{ boxShadow: "none" }}
           loading={isSubmitting || isLoading}
         >
           Submit

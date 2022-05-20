@@ -8,12 +8,13 @@ import { useDispatch } from "react-redux";
 import { getTasks, updateTaskReview } from "../features/task/taskSlice";
 import { useSelector } from "react-redux";
 import {
-  Box,
+  Alert,
   Button,
   Card,
+  Chip,
   Container,
+  Divider,
   Grid,
-  Paper,
   Stack,
   Typography,
 } from "@mui/material";
@@ -92,9 +93,7 @@ function TaskAdminList() {
     if (source.droppableId === "done" && destination.droppableId === "review") {
       return;
     }
-    if (source.droppableId === "review" && destination.droppableId === "todo") {
-      return;
-    }
+
     if (source.droppableId === "done" && destination.droppableId === "todo") {
       return;
     }
@@ -125,13 +124,53 @@ function TaskAdminList() {
       ) {
         dispatch(updateTaskReview(itemCopy._id, "done"));
       }
+      if (
+        source.droppableId === "review" &&
+        destination.droppableId === "todo"
+      ) {
+        dispatch(updateTaskReview(itemCopy._id, "todo"));
+      }
 
       return prev;
     });
   };
 
   return (
-    <Container>
+    <Container sx={{ py: 5 }}>
+      <Card sx={{ p: 2, boxShadow: "none" }}>
+        <Stack>
+          <Alert severity="info" sx={{ mb: 1 }}>
+            Annotate the color of the task's deadline tag
+          </Alert>
+        </Stack>
+        <Stack direction="row">
+          <Chip
+            label=""
+            size="small"
+            sx={{ backgroundColor: "#54D62C", paddingRight: 5, marginRight: 1 }}
+          />
+          <Typography variant="subtitle2" sx={{ marginRight: 2 }}>
+            Deadline over 5 days
+          </Typography>
+          <Chip
+            label=""
+            size="small"
+            sx={{ backgroundColor: "#F2A120", paddingRight: 5, marginRight: 1 }}
+          />
+          <Typography variant="subtitle2" sx={{ marginRight: 2 }}>
+            Deadline is 3-5 days left
+          </Typography>
+          <Chip
+            label=""
+            size="small"
+            sx={{ backgroundColor: "#D32F2F", paddingRight: 5, marginRight: 1 }}
+          />
+          <Typography variant="subtitle2" sx={{ marginRight: 2 }}>
+            Deadline is less than 3 days
+          </Typography>
+        </Stack>
+      </Card>
+      <Divider sx={{ mt: 2, mb: 2 }} />
       <Card
         sx={{
           backgroundColor: "primary.lighter",

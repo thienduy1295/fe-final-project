@@ -19,6 +19,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import EventIcon from "@mui/icons-material/Event";
 import useAuth from "../../hooks/useAuth";
 import CloseIcon from "@mui/icons-material/Close";
+import UndoIcon from "@mui/icons-material/Undo";
 
 function TaskCard({ staff, task }) {
   const { user } = useAuth();
@@ -77,16 +78,33 @@ function TaskCard({ staff, task }) {
           )
         ) : task.status === "review" ? (
           user.roles === "admin" ? (
-            <IconButton
-              color="success"
-              aria-label="review"
-              onClick={() => dispatch(updateTaskReview(task._id, "done"))}
-            >
-              <CheckIcon fontSize="small" />
-            </IconButton>
+            <Stack direction="row">
+              <IconButton
+                color="warning"
+                aria-label="review"
+                onClick={() => dispatch(updateTaskReview(task._id, "todo"))}
+              >
+                <UndoIcon fontSize="small" />
+              </IconButton>
+              <IconButton
+                color="success"
+                aria-label="review"
+                onClick={() => dispatch(updateTaskReview(task._id, "done"))}
+              >
+                <CheckIcon fontSize="small" />
+              </IconButton>
+            </Stack>
           ) : (
             <VisibilityIcon color="warning" aria-label="review" />
           )
+        ) : user.roles === "admin" ? (
+          <IconButton
+            color="error"
+            aria-label="delete"
+            onClick={() => dispatch(deleteTask(task._id))}
+          >
+            <CloseIcon fontSize="small" />
+          </IconButton>
         ) : (
           ""
         )}

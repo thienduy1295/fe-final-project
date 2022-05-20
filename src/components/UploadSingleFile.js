@@ -71,10 +71,10 @@ function UploadSingleFile({ error = false, file, helperText, sx, ...other }) {
           <Box
             sx={{
               top: 8,
-              left: 8,
+              left: 0,
               borderRadius: 1,
               position: "absolute",
-              width: "calc(100% - 16px)",
+              width: "calc(100% - 16px)%",
               height: "calc(100% - 16px)",
               overflow: "hidden",
               "& img": { objectFit: "cover", width: 1, height: 1 },

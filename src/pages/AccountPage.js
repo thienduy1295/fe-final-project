@@ -28,7 +28,6 @@ const UpdateUserSchema = yup.object().shape({
   newPassword: yup.string(),
   confirmPassword: yup
     .string()
-    .required("Please confirm your new password.")
     .oneOf([yup.ref("newPassword")], "Your passwords do not match"),
 });
 

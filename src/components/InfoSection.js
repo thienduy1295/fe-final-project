@@ -2,24 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import { Button } from "./Button";
 import Fade from "react-reveal/Fade";
-import { Card, Container, Grid } from "@mui/material";
+import { Card, Container, Grid, Link, Typography } from "@mui/material";
+import {
+  InfoData,
+  InfoDataFour,
+  InfoDataThree,
+  InfoDataTwo,
+} from "../data/InfoData";
 
 const Section = styled.section`
   width: 100%;
   height: 100%;
   padding: 4rem 0rem;
 `;
-
-// const Container = styled.div`
-//   padding: 3rem calc((100vw - 1300px) / 2);
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-//   grid-template-rows: 800px;
-
-//   @media screen and (max-width: 768px) {
-//     grid-template-columns: 1fr;
-//   }
-// `;
 
 const ColumnLeft = styled.div`
   display: flex;
@@ -72,27 +67,73 @@ const InfoSection = ({
   image,
 }) => {
   return (
-    <Fade bottom>
-      <Container>
-        <Grid container spacing={2}>
-          <Grid item md={7}>
-            <ColumnLeft>
-              <h1>{heading}</h1>
-              <p>{paragraphOne}</p>
-              <p>{paragraphTwo}</p>
-              <Button to="/homes" primary="true">
-                {buttonLabel}
-              </Button>
-            </ColumnLeft>
-          </Grid>
-          <Grid item md={5}>
+    <Container>
+      <Grid container spacing={1}>
+        <Grid item md={6}>
+          <Fade bottom>
             <ColumnRight reverse={reverse}>
-              <img src={image} alt="home" />
+              <img src={InfoData.image} alt="home" />
             </ColumnRight>
-          </Grid>
+            <ColumnLeft>
+              <h1>{InfoData.heading}</h1>
+              <p>{InfoData.paragraphOne.slice(0, 100) + "..."}</p>
+              <Link href="#" color="primary.light">
+                Read more
+              </Link>
+            </ColumnLeft>
+          </Fade>
+
+          <Fade bottom>
+            <ColumnRight reverse={reverse}>
+              <img src={InfoDataThree.image} alt="home" />
+            </ColumnRight>
+            <ColumnLeft>
+              <h1>{InfoDataThree.heading}</h1>
+              <p>{InfoDataThree.paragraphOne.slice(0, 100) + "..."}</p>
+              <Link href="#" color="primary.light">
+                Read more
+              </Link>
+            </ColumnLeft>
+          </Fade>
+
+          <Fade bottom>
+            <ColumnLeft>
+              <Typography variant="h4" sx={{ color: "#FFCB05" }}>
+                2022 saw the mh architects find new ways of connecting and
+                working. Take a lool now...
+              </Typography>
+            </ColumnLeft>
+          </Fade>
         </Grid>
-      </Container>
-    </Fade>
+        <Grid item md={6}>
+          <Fade bottom>
+            <ColumnRight reverse={reverse}>
+              <img src={InfoDataTwo.image} alt="home" />
+            </ColumnRight>
+            <ColumnLeft>
+              <h1>{InfoDataTwo.heading}</h1>
+              <p>{InfoDataTwo.paragraphOne.slice(0, 100) + "..."}</p>
+              <Link href="#" color="primary.light">
+                Read more
+              </Link>
+            </ColumnLeft>
+          </Fade>
+
+          <Fade bottom>
+            <ColumnRight reverse={reverse}>
+              <img src={InfoDataFour.image} alt="home" />
+            </ColumnRight>
+            <ColumnLeft>
+              <h1>{InfoDataFour.heading}</h1>
+              <p>{InfoDataFour.paragraphOne.slice(0, 100) + "..."}</p>
+              <Link href="#" color="primary.light">
+                Read more
+              </Link>
+            </ColumnLeft>
+          </Fade>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 

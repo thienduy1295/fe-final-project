@@ -17,7 +17,7 @@ import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getStatusCount, getTasks } from "../features/task/taskSlice";
-import { getAllData, getStaffs } from "../features/staff/staffSlice";
+import { getAllData } from "../features/staff/staffSlice";
 import { getBims } from "../features/bimLibrary/bimLibSlice";
 
 function DashboardInfo() {
@@ -33,7 +33,6 @@ function DashboardInfo() {
   }, [dispatch]);
 
   const { staffList } = useSelector((state) => state.staff);
-  // console.log(countStatusType.todo);
   const data = [
     { name: "Todo", value: countStatusType.todo },
     { name: "Review", value: countStatusType.review },

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import apiService from "../../app/apiService";
 import { cloudinaryUpload } from "../../utils/cloudinary";
 
@@ -66,8 +67,10 @@ export const createBim =
       });
       dispatch(slice.actions.createBimSuccess(response.data));
       dispatch(getBims({ filterName: "" }));
+      toast.success("Create BIM model success");
     } catch (error) {
       dispatch(slice.actions.hasError(error.message));
+      toast.error(error.message);
     }
   };
 
@@ -102,8 +105,10 @@ export const deleteBim = (bimId) => async (dispatch) => {
     const response = await apiService.delete(`/bimLibrary/${bimId}`);
     dispatch(slice.actions.deleteBimSuccess(response.data));
     dispatch(getBims({ filterName: "" }));
+    toast.success("Delete BIM model success");
   } catch (error) {
     dispatch(slice.actions.hasError(error));
+    toast.error(error.message);
   }
 };
 

@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchInput from "../../components/SearchInput";
 import { getAllData, getStaffs } from "./staffSlice";
 import StaffTable from "./StaffTable";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 
 import { getStatusCount, getTasks } from "../task/taskSlice";
 import { getBims } from "../bimLibrary/bimLibSlice";
@@ -50,12 +51,28 @@ function Staff() {
   }, [filterName, page, rowsPerPage, dispatch]);
 
   return (
-    <Container>
+    <Container sx={{ py: 5 }}>
       <Stack minHeight="100vh">
-        <Typography variant="h4" sx={{ mb: 3, mt: 3 }}>
-          Staff List
-        </Typography>
-        <Card sx={{ p: 3 }}>
+        <Card
+          sx={{ mb: 1, p: 3, boxShadow: "none", backgroundColor: "#0088FE" }}
+        >
+          <Stack direction="row" alignItems="center">
+            <Stack>
+              <PeopleAltIcon
+                sx={{ fontSize: "60px", marginRight: "10px", color: "white" }}
+              />
+            </Stack>
+            <Stack>
+              <Typography variant="h6" sx={{ color: "white" }}>
+                Staff list
+              </Typography>
+              <Typography variant="subtitle1" sx={{ color: "white" }}>
+                Employee management board
+              </Typography>
+            </Stack>
+          </Stack>
+        </Card>
+        <Card sx={{ p: 3, boxShadow: "none" }}>
           <Stack spacing={2}>
             <Stack direction={{ xs: "column", md: "row" }} alignItems="center">
               <SearchInput handleSubmit={handleSubmit} />
