@@ -1,39 +1,40 @@
-.App {
-  text-align: center;
+* {
+  font-family: "Futura LT", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+.task-app {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
-.App-header {
-  min-height: 100vh;
+.task-app .column {
+  width: 30%;
+}
+
+.droppable-col {
+  width: 100%;
+  background-color: gray;
+  /* padding: 10px 10px 10px 10px; */
+  border-radius: 7px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
-}
+/* .item {
+  margin-bottom: 10px;
+  background-color: gray;
+  color: black;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 7px;
+} */
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.item.dragging {
+  background-color: coral;
 }
