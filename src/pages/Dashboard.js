@@ -25,7 +25,7 @@ import { useDispatch } from "react-redux";
 
 function Dashboard() {
   const [currentTab, setCurrentTab] = useState("dashboard");
-  const mediumViewport = useMediaQuery("(min-width:768px)");
+  const mediumViewport = useMediaQuery("(min-width:1024px)");
 
   const { countStatusType } = useSelector((state) => state.task);
   const dispatch = useDispatch();

@@ -2,8 +2,6 @@ import {
   Alert,
   Button,
   Card,
-  CardMedia,
-  Container,
   Grid,
   Pagination,
   Stack,
@@ -15,11 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import BimFilterCategory from "../../components/BimFilterCategory";
 import BimList from "../../components/BimList";
 import LoadingScreen from "../../components/LoadingScreen";
-import SearchInput from "../../components/SearchInput";
 import { getBims } from "./bimLibSlice";
 import ClearAllIcon from "@mui/icons-material/ClearAll";
-import newCollections from "../../images/newCollections/hero_image.jpg";
-import SwipeableTextMobileStepper from "../../components/CarouselEffect";
 import CarouselEffect from "../../components/CarouselEffect";
 
 function BimLib() {
@@ -73,7 +68,7 @@ function BimLib() {
         md={3}
         lg={3}
       >
-        <Card variant="oulined">
+        <Card variant="oulined" sx={{ borderRadius: 0 }}>
           <Stack>
             <BimFilterCategory
               handleOnChange={handleOnChange}
@@ -85,7 +80,7 @@ function BimLib() {
               variant="contained"
               onClick={resetFilters}
               startIcon={<ClearAllIcon />}
-              sx={{ borderRadius: "0" }}
+              sx={{ borderRadius: 0 }}
             >
               <Typography>Clear All</Typography>
             </Button>
@@ -102,12 +97,6 @@ function BimLib() {
               borderRadius: 7,
             }}
           >
-            {/* <CardMedia
-              component="img"
-              height="300"
-              image={newCollections}
-              alt="image Collections"
-            /> */}
             <CarouselEffect />
           </Card>
           <Stack>

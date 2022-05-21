@@ -1,13 +1,12 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
-import ImageOne from "../images/newCollections/hero_image.jpg";
+import ImageOne from "../images/newCollections/house-2.png";
 import ImageTwo from "../images/newCollections/house-1.png";
-import ImageThree from "../images/newCollections/house-2.png";
-import ImageFour from "../images/newCollections/house-3.png";
-import ImageFive from "../images/newCollections/house-4.png";
+// import ImageThree from "../images/newCollections/house-2.png";
+// import ImageFour from "../images/newCollections/house-3.png";
+// import ImageFive from "../images/newCollections/house-4.png";
 import { CardMedia } from "@mui/material";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -21,14 +20,14 @@ const images = [
     label: 2,
     imgPath: ImageTwo,
   },
-  {
-    label: 3,
-    imgPath: ImageThree,
-  },
-  {
-    label: 4,
-    imgPath: ImageFour,
-  },
+  // {
+  //   label: 3,
+  //   imgPath: ImageThree,
+  // },
+  // {
+  //   label: 4,
+  //   imgPath: ImageFour,
+  // },
 ];
 
 function CarouselEffect() {

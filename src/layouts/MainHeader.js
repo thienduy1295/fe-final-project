@@ -82,15 +82,18 @@ function MainHeader() {
       </Box>
 
       <Divider sx={{ borderStyle: "dashed" }} />
-
-      <MenuItem
-        onClick={handleMenuClose}
-        to="/dashboard"
-        component={RouterLink}
-        sx={{ mx: 1 }}
-      >
-        <DashboardIcon /> Dashboard
-      </MenuItem>
+      {user.roles === "admin" ? (
+        <MenuItem
+          onClick={handleMenuClose}
+          to="/dashboard"
+          component={RouterLink}
+          sx={{ mx: 1 }}
+        >
+          <DashboardIcon /> Dashboard
+        </MenuItem>
+      ) : (
+        ""
+      )}
 
       <MenuItem
         onClick={handleMenuClose}
@@ -134,9 +137,6 @@ function MainHeader() {
           >
             <Logo sx={{ width: 200 }} />
           </IconButton>
-          {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            mh architects
-          </Typography> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box>
             <Avatar
