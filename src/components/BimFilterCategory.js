@@ -1,5 +1,4 @@
 import {
-  Box,
   FormControlLabel,
   Radio,
   RadioGroup,

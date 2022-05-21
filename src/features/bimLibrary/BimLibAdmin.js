@@ -15,7 +15,6 @@ import BimTable from "./BimTable";
 import Popup from "../../components/Popup";
 import BimForm from "./BimForm";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
 function BimLibAdmin() {

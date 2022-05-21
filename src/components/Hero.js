@@ -1,13 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import styled, { css } from "styled-components/macro";
 import { Button } from "./Button";
 import { IoMdArrowRoundForward } from "react-icons/io";
-// import { IoArrowForward, IoArrowBack } from "react-icons/io5";
 
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-// import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
 import { Typography } from "@mui/material";
 
