@@ -132,8 +132,10 @@ export const editBim =
       const response = await apiService.put(`/bimLibrary/${bimId}`, data);
       dispatch(slice.actions.editBimSuccess(response.data));
       dispatch(getBims({ filterName: "" }));
+      toast.success("Update BIM model successful");
     } catch (error) {
       dispatch(slice.actions.hasError(error));
+      toast.error(error.message);
     }
   };
 
