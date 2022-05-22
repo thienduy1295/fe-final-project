@@ -1,46 +1,61 @@
-# Getting Started with Create React App and Redux
+# Task-management-application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Description
 
-## Available Scripts
+A task management web application built with MERN stack. This web has 2 pages: 1 for customers and 1 for Admin/Staff.
 
-In the project directory, you can run:
+- Page for view of customer: Introduce the company and show customers see some projects of the company. (Landing profile page)
+- Page for admin and staff: With an account have a role admin or staff can log in.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This includes all common features of Task management. You can log in or create an account with email and password if you are a staff of the company
+type on URL from (homepage)/login.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User authentication and managing account
 
-### `npm test`
+CUSTOMER: PUBLIC view
+USERS: consists of admin + staff
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The admin account is unique and available.
 
-### `npm run build`
+1. Staff can create an account by email and password, roles default: staff ✅
+2. Users can log in with email and password ✅
+3. Users can see a list of users ✅
+4. Users can see the information the user by id ✅
+5. Owners can see their own user information ✅
+6. Owners can update their account profile ✅
+7. Admin can delete staff's account by id ✅
+8. Users can update their password ✅
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Task
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Authenticated admin can create tasks and give tasks to staff ✅
+2. Authenticated admin can see a list of tasks. ✅
+3. Authenticated admin can update tasks.✅
+4. Authenticated admin can delete tasks.✅
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Staff can see a list of assigned tasks✅
+6. Staff can change the status task review ✅
+7. Admin can change status to "done" when staff sends task reviews.✅
 
-### `npm run eject`
+### BIM Library
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Admin can create Lib's item. ✅
+2. Admin can update Lib's item. ✅
+3. Admin can delete Lib's item. ✅
+4. Users can see the list of Lib. ✅
+5. Staff can download Lib's item.✅
+6. Users can search Lib by name with a suggestion✅
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Production API
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [App demo](https://duy-mh-architects.netlify.app/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## The end
 
-## Learn More
+@Copyright by DuyCao
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Some of the images and models used in the website provided by mh architects company have image copyright. If you want to use these images please contact me through the link below:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [github](https://github.com/thienduy1295)
