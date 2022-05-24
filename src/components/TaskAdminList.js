@@ -219,6 +219,7 @@ function TaskAdminList() {
                           sx={{
                             backgroundColor: "transparent",
                             boxShadow: "none",
+                            // p: 2,
                           }}
                         >
                           {data.items.map((el, index) => {
