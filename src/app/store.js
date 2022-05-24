@@ -11,12 +11,16 @@ import taskReducer, {
 import userReducer, {
   initialState as userState,
 } from "../features/user/userSlice";
+import projectReducer, {
+  initialState as projectState,
+} from "../features/project/projectSlice";
 
 const combinedReducer = combineReducers({
   staff: staffReducer,
   bimLib: bimLibReducer,
   task: taskReducer,
   user: userReducer,
+  project: projectReducer,
 });
 
 const rootReducer = (state, action) => {
@@ -26,6 +30,7 @@ const rootReducer = (state, action) => {
       bimLib: bimState,
       task: taskState,
       user: userState,
+      project: projectState,
     };
   }
   return combinedReducer(state, action);

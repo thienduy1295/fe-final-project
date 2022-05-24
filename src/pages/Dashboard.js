@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import ArtTrackIcon from "@mui/icons-material/ArtTrack";
-
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import TaskAdminList from "../components/TaskAdminList";
 import {
   Box,
@@ -22,16 +22,19 @@ import DashboardInfo from "../components/DashboardInfo";
 import { useSelector } from "react-redux";
 import { getStatusCount } from "../features/task/taskSlice";
 import { useDispatch } from "react-redux";
+import { getAllProject } from "../features/project/projectSlice";
 
 function Dashboard() {
   const [currentTab, setCurrentTab] = useState("dashboard");
   const mediumViewport = useMediaQuery("(min-width:1024px)");
 
   const { countStatusType } = useSelector((state) => state.task);
+  const { projectList } = useSelector((state) => state.project);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getStatusCount());
+    dispatch(getAllProject());
   }, [dispatch]);
 
   const handleChangeTab = (newValue) => {
@@ -62,6 +65,11 @@ function Dashboard() {
       value: "bim library",
       icon: <ArtTrackIcon sx={{ fontSize: 24 }} />,
       component: <AdminBim />,
+    },
+    {
+      value: "project",
+      icon: <AccountTreeIcon sx={{ fontSize: 24 }} />,
+      component: [],
     },
   ];
 
