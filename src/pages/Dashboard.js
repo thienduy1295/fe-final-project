@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import ArtTrackIcon from "@mui/icons-material/ArtTrack";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import TaskAdminList from "../components/TaskAdminList";
 import {
   Box,
@@ -13,6 +12,8 @@ import {
   useMediaQuery,
   Typography,
   Badge,
+  Popover,
+  MenuItem,
 } from "@mui/material";
 import { capitalCase } from "change-case";
 import Staff from "../features/staff/Staff";
@@ -23,6 +24,8 @@ import { useSelector } from "react-redux";
 import { getStatusCount } from "../features/task/taskSlice";
 import { useDispatch } from "react-redux";
 import { getAllProject } from "../features/project/projectSlice";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Project from "../features/project/Project";
 
 function Dashboard() {
   const [currentTab, setCurrentTab] = useState("dashboard");
@@ -39,6 +42,37 @@ function Dashboard() {
 
   const handleChangeTab = (newValue) => {
     setCurrentTab(newValue);
+  };
+
+  const [state, setState] = useState({
+    value: "One",
+    label: "Three",
+    content: "One",
+    anchorEl: null,
+  });
+
+  const open = Boolean(state.anchorEl);
+
+  const handleClick = (event) => {
+    event.stopPropagation();
+    setState({ ...state, anchorEl: event.currentTarget });
+  };
+
+  const handleClose = () => {
+    setState({ ...state, anchorEl: null });
+  };
+
+  const handleMenuItemClick = (menuItem) => {
+    handleClose();
+    setState({
+      ...state,
+      label: menuItem,
+      content: menuItem,
+      value: "project",
+    });
+  };
+  const handleChange = (event, value) => {
+    setState({ ...state, value });
   };
 
   const PROFILE_TABS = [
@@ -68,8 +102,8 @@ function Dashboard() {
     },
     {
       value: "project",
-      icon: <AccountTreeIcon sx={{ fontSize: 24 }} />,
-      component: [],
+      icon: <ArrowDropDownIcon sx={{ fontSize: 24 }} onClick={handleClick} />,
+      component: <Project />,
     },
   ];
 
@@ -96,6 +130,29 @@ function Dashboard() {
               iconPosition="start"
             />
           ))}
+
+          <Popover
+            open={open}
+            anchorEl={state.anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+          >
+            {projectList.map((project) => (
+              <MenuItem
+                key={project._id}
+                onClick={() => handleMenuItemClick("Three")}
+              >
+                {project.name}
+              </MenuItem>
+            ))}
+          </Popover>
         </Tabs>
       </Grid>
       <Grid item md={10} sm={12}>
