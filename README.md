@@ -7,6 +7,17 @@ A task management web application built with MERN stack. This web has 2 pages: 1
 - Page for view of customer: Introduce the company and show customers see some projects of the company. (Landing profile page)
 - Page for admin and staff: With an account have a role admin or staff can log in.
 
+> ## How to use this web
+>
+> 1. At homepage type "/login" in url's browser
+> 2. Login with admin account:
+>    - username: duy@gmail.com
+>    - password: 1
+>
+> Let's experience the website
+>
+> For the best experience, you should use 2 accounts (admin and staff) to see the magic
+
 ## Features
 
 This includes all common features of Task management. You can log in or create an account with email and password if you are a staff of the company
@@ -17,7 +28,7 @@ type on URL from (homepage)/login.
 CUSTOMER: PUBLIC view
 USERS: consists of admin + staff
 
-- The admin account is unique and available.
+> The admin account is unique and available. You can't create admin account
 
 1. Staff can create an account by email and password, roles default: staff ✅
 2. Users can log in with email and password ✅
